@@ -1,0 +1,22 @@
+name: Survey a source
+# Runs a read-only survey script against a public source and prints counts.
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: 'Script under scripts/survey/'
+        default: 'a2aj-licences.mjs'
+        required: true
+permissions:
+  contents: read
+jobs:
+  survey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci --ignore-scripts
+      - run: node "scripts/survey/${{ inputs.script }}"
