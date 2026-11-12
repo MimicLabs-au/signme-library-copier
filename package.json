@@ -1,0 +1,13 @@
+{
+  "name": "signme-library-copier",
+  "private": true,
+  "description": "Copies openly licensed legislation and decisions from official publishers into a storage vault. Scripts only.",
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.1162.0",
+    "@duckdb/node-api": "1.5.6-r.2",
+    "mammoth": "1.11.0",
+    "pdfjs-dist": "6.3.289"
+  }
+}

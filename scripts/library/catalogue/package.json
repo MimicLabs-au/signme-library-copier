@@ -1,0 +1,16 @@
+{
+  "name": "signme-library-catalogue",
+  "private": true,
+  "description": "Builds a search index (catalogue) for a library collection from the vault. Kept apart from the app's dependencies: the search engine is a replaceable part. docs/OPERATIONS.md, 6 November 2026.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.1162.0",
+    "@aws-sdk/lib-storage": "3.1162.0",
+    "@duckdb/node-api": "1.5.6-r.2",
+    "@lancedb/lancedb": "0.41.0",
+    "apache-arrow": "21.1.0"
+  }
+}

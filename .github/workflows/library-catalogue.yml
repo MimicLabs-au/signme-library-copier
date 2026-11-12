@@ -1,0 +1,49 @@
+name: Build library catalogue
+# Builds a search index (the catalogue) for a library collection from the
+# vault and stores it beside the vault in the `library` bucket, under a new
+# build id. Reads every vault file back first and checks it against the
+# manifest. Touches no database and nothing the live app uses. Started by
+# hand. docs/OPERATIONS.md, 6 November 2026.
+on:
+  workflow_dispatch:
+    inputs:
+      collection:
+        description: 'Collection in the vault'
+        default: 'au/open-australian-legal-corpus/7.1.0'
+        required: true
+      upload:
+        description: 'Upload the build (false = build and report sizes only)'
+        type: boolean
+        default: true
+permissions:
+  contents: read
+concurrency:
+  group: library-catalogue-${{ inputs.collection }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      LIBRARY_S3_ENDPOINT: ${{ secrets.LIBRARY_S3_ENDPOINT }}
+      LIBRARY_S3_REGION: ap-southeast-2
+      LIBRARY_S3_ACCESS_KEY_ID: ${{ secrets.LIBRARY_S3_ACCESS_KEY_ID }}
+      LIBRARY_S3_SECRET_ACCESS_KEY: ${{ secrets.LIBRARY_S3_SECRET_ACCESS_KEY }}
+      LIBRARY_MAX_UPLOAD_MB: ${{ vars.LIBRARY_MAX_UPLOAD_MB || '50' }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci
+        working-directory: scripts/library/catalogue
+      - name: Room to work (the second disk)
+        run: |
+          sudo mkdir -p /mnt/catalogue-work && sudo chown "$USER" /mnt/catalogue-work
+          df -h / /mnt
+      - name: Build
+        run: >
+          node scripts/library/catalogue/build.mjs
+          --collection "${{ inputs.collection }}"
+          --work /mnt/catalogue-work
+          ${{ inputs.upload == false && '--no-upload' || '' }}

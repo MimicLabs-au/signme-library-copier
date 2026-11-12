@@ -1,0 +1,69 @@
+name: Import library collection
+# Copies a library collection into the vault from its publisher's site
+# (scripts/library-import.mjs). Touches no database and nothing the live app
+# uses; the catalogue is built from the vault afterwards (library-catalogue.yml).
+# Resumable: a run that stops at its deadline continues next time. Started by hand.
+# claude/library-uk-expansion-2026-11-09.md.
+on:
+  workflow_dispatch:
+    inputs:
+      collection:
+        description: 'Collection to copy'
+        default: 'uk/legislation-gov-uk/2026-11-primary'
+        required: true
+      max_documents:
+        description: 'Stop after this many documents (0 = no limit; 200 is the smoke test)'
+        default: '0'
+      hours:
+        description: 'Stop cleanly after this many hours'
+        default: '5.5'
+permissions:
+  contents: read
+# One run per collection at a time: each collection is its own vault folder,
+# so different collections can run side by side (a crawl of one publisher's
+# site and a copy from a checkout do not compete).
+concurrency:
+  group: library-import-${{ inputs.collection || 'nightly' }}
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      LIBRARY_S3_ENDPOINT: ${{ secrets.LIBRARY_S3_ENDPOINT }}
+      LIBRARY_S3_REGION: ap-southeast-2
+      LIBRARY_S3_ACCESS_KEY_ID: ${{ secrets.LIBRARY_S3_ACCESS_KEY_ID }}
+      LIBRARY_S3_SECRET_ACCESS_KEY: ${{ secrets.LIBRARY_S3_SECRET_ACCESS_KEY }}
+      LIBRARY_MAX_UPLOAD_MB: ${{ vars.LIBRARY_MAX_UPLOAD_MB || '45' }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci --ignore-scripts
+      - name: Check out the publisher's files (collections that read a repository)
+        id: source
+        run: |
+          node -e "
+            import('./scripts/library/collections.mjs').then(({ collections }) => {
+              const c = collections['${{ inputs.collection || 'uk/legislation-gov-uk/2026-11-primary' }}']
+              console.log('repository=' + (c?.source?.repository ?? ''))
+            })" >> "$GITHUB_OUTPUT"
+          REPO=$(grep '^repository=' "$GITHUB_OUTPUT" | tail -1 | cut -d= -f2-)
+          if [ -n "$REPO" ]; then
+            git clone --depth 1 "$REPO" /tmp/library-source
+            echo "commit=$(git -C /tmp/library-source rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+            echo "dir=/tmp/library-source" >> "$GITHUB_OUTPUT"
+            du -sh /tmp/library-source
+          fi
+      - name: Import
+        env:
+          LIBRARY_SOURCE_COMMIT: ${{ steps.source.outputs.commit }}
+        run: |
+          HOURS="${{ inputs.hours || '5.5' }}"
+          DEADLINE=$(node -e "console.log(new Date(Date.now() + $HOURS*3600*1000).toISOString())")
+          node scripts/library-import.mjs \
+            --collection "${{ inputs.collection || 'uk/legislation-gov-uk/2026-11-primary' }}" \
+            --max-documents "${{ inputs.max_documents || '0' }}" \
+            --deadline "$DEADLINE" \
+            ${{ steps.source.outputs.dir && format('--source-dir {0}', steps.source.outputs.dir) || '' }}
