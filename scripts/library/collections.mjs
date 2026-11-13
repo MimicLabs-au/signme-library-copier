@@ -368,7 +368,7 @@ export const collections = {
     licenceFile: 'scripts/library/licences/a2aj-canada.md',
     // The day the publisher's terms were last read against this use.
     termsReadOn: '2026-11-13',
-    status: 'vaulted',
+    status: 'live',
     attribution:
       'Reproduced under the Reproduction of Federal Law Order. Not an official version; not produced in affiliation with or with the endorsement of the Government of Canada. Data via A2AJ.',
     tables: null,
