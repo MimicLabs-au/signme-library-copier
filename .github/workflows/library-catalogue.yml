@@ -35,6 +35,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version-file: .nvmrc
+      - name: Check the registry against the library standard
+        run: node scripts/library/conformance.mjs
       - run: npm ci
         working-directory: scripts/library/catalogue
       - name: Room to work (the second disk)

@@ -10,6 +10,10 @@ Scripts that copy openly licensed legislation and court or tribunal decisions fr
 - `scripts/library/sources/` holds one adapter per publisher: legislation.gov.uk, the Justice Laws Website of Canada (from its XML repository), and GOV.UK tribunal decision finders.
 - `scripts/library/licences/` holds the licence text kept beside each collection.
 
+## The standard
+
+Every collection follows `docs/LIBRARY-STANDARD.md`: the same seven steps, the same stored fields, the same registry entry. `node scripts/library/conformance.mjs` checks the registry and runs before every import and index build; `docs/REGISTER.md` is the register it writes (publisher, licence, saved terms, date read, credit, status).
+
 ## Sources and licences
 
 Only sources whose terms allow this use are copied: Open Government Licence v3.0 (United Kingdom), Open Government Licence – Canada and the Reproduction of Federal Law Order. Sites whose terms forbid bulk or automated access (AustLII, BAILII, CanLII) are never used.

@@ -1,4 +1,6 @@
 // The collections in SignMe's library vault. One entry per source version.
+// Every entry follows docs/LIBRARY-STANDARD.md and is checked by
+// scripts/library/conformance.mjs, which also writes docs/REGISTER.md.
 // Adding a country or a source means adding an entry here (and a licence
 // file beside it), not building a new system. docs/SPEC.md, "Sources: The
 // library"; docs/OPERATIONS.md, 5 November 2026.
@@ -20,6 +22,11 @@ export const collections = {
       'CC-BY-4.0 for the collection; each document under its source’s own terms (LICENCE.md)',
     // The publisher's LICENCE.md for this version, word for word (line endings normalised).
     licenceFile: 'scripts/library/licences/open-australian-legal-corpus-7.1.0.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-05',
+    status: 'live',
+    attribution:
+      'Includes adapted material from the Open Australian Legal Corpus by Umar Butler, licensed under CC BY 4.0.',
     // Vault copied 5 Nov 2026 from the database tables that then held the
     // library (dropped 9 Nov 2026; passages split by scripts/corpus/chunk.mjs).
     // The vault is now the only copy; the catalogue is built from it.
@@ -51,6 +58,9 @@ export const collections = {
     collectedAsAt: null,
     licence: 'Open Government Licence v3.0 (LICENCE.md)',
     licenceFile: 'scripts/library/licences/legislation-gov-uk-ogl-3.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-09',
+    status: 'live',
     attribution:
       'Contains public sector information licensed under the Open Government Licence v3.0.',
     tables: null,
@@ -90,6 +100,9 @@ export const collections = {
     licence:
       'Open Government Licence – Canada; Reproduction of Federal Law Order, SI/97-5 (LICENCE.md)',
     licenceFile: 'scripts/library/licences/justice-laws-canada-ogl.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-09',
+    status: 'superseded',
     attribution:
       'Contains information licensed under the Open Government Licence – Canada. Reproduced under the Reproduction of Federal Law Order; not an official version.',
     tables: null,
@@ -121,6 +134,9 @@ export const collections = {
     licence:
       'Open Government Licence – Canada; Reproduction of Federal Law Order, SI/97-5 (LICENCE.md)',
     licenceFile: 'scripts/library/licences/justice-laws-canada-ogl.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-09',
+    status: 'live',
     attribution:
       'Contains information licensed under the Open Government Licence – Canada. Reproduced under the Reproduction of Federal Law Order; not an official version.',
     tables: null,
@@ -155,6 +171,9 @@ export const collections = {
     licence:
       'Open Government Licence – Canada; Reproduction of Federal Law Order, SI/97-5 (LICENCE.md)',
     licenceFile: 'scripts/library/licences/justice-laws-canada-ogl.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-09',
+    status: 'vaulted',
     attribution:
       'Contient des informations autorisées en vertu de la Licence du gouvernement ouvert – Canada. Reproduit en vertu du Décret sur la reproduction de la législation fédérale; n’est pas une version officielle.',
     tables: null,
@@ -186,6 +205,9 @@ export const collections = {
     collectedAsAt: null,
     licence: 'Open Government Licence v3.0 (LICENCE.md)',
     licenceFile: 'scripts/library/licences/legislation-gov-uk-ogl-3.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-09',
+    status: 'live',
     attribution:
       'Contains public sector information licensed under the Open Government Licence v3.0.',
     tables: null,
@@ -221,6 +243,9 @@ export const collections = {
     collectedAsAt: null,
     licence: 'Open Government Licence v3.0 (LICENCE.md)',
     licenceFile: 'scripts/library/licences/govuk-ogl-3.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-10',
+    status: 'live',
     attribution:
       'Contains public sector information licensed under the Open Government Licence v3.0.',
     tables: null,
@@ -251,6 +276,9 @@ export const collections = {
     collectedAsAt: null,
     licence: 'Open Government Licence v3.0 (LICENCE.md)',
     licenceFile: 'scripts/library/licences/govuk-ogl-3.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-10',
+    status: 'live',
     attribution:
       'Contains public sector information licensed under the Open Government Licence v3.0.',
     tables: null,
@@ -279,6 +307,9 @@ export const collections = {
     collectedAsAt: null,
     licence: 'MIT (dataset); Reproduction of Federal Law Order SI/97-5; Open Government Licence – Ontario (LICENCE.md)',
     licenceFile: 'scripts/library/licences/a2aj-canada.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-13',
+    status: 'live',
     attribution:
       'Reproduced under the Reproduction of Federal Law Order; contains information licensed under the Open Government Licence – Ontario. Not an official version. Data via A2AJ.',
     tables: null,
@@ -306,6 +337,9 @@ export const collections = {
     collectedAsAt: null,
     licence: 'MIT (dataset); King\'s Printer terms of Ontario, British Columbia and Alberta (LICENCE.md)',
     licenceFile: 'scripts/library/licences/a2aj-canada.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-13',
+    status: 'live',
     attribution:
       '© King\'s Printer for Ontario; King\'s Printer Licence – British Columbia; © Alberta King\'s Printer. Not official versions. Data via A2AJ.',
     tables: null,
