@@ -13,6 +13,10 @@ jobs:
   survey:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      LIBRARY_S3_ENDPOINT: ${{ secrets.LIBRARY_S3_ENDPOINT }}
+      LIBRARY_S3_ACCESS_KEY_ID: ${{ secrets.LIBRARY_S3_ACCESS_KEY_ID }}
+      LIBRARY_S3_SECRET_ACCESS_KEY: ${{ secrets.LIBRARY_S3_SECRET_ACCESS_KEY }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
