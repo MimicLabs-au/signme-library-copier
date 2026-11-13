@@ -18,6 +18,7 @@ Two layers of terms apply.
 | Sets | Terms relied on |
 |---|---|
 | Federal Court, Federal Court of Appeal, Tax Court of Canada; Social Security Tribunal, Federal Public Sector Labour Relations and Employment Board, Canadian Human Rights Tribunal, Canada Industrial Relations Board, Occupational Health and Safety Tribunal Canada, Competition Tribunal | **Reproduction of Federal Law Order, SI/97-5**: anyone may, without charge or request for permission, reproduce decisions and reasons for decisions of federally-constituted courts and administrative tribunals, provided due diligence is exercised in ensuring accuracy and the reproduction is not represented as an official version. |
+| Added 13 November 2026 (collection `ca/a2aj-federal-tribunals/2026-11`): Immigration and Refugee Board (Refugee Appeal Division, Refugee Protection Division, and the Refugee Law Lab Reporter's selection of its decisions), Canadian International Trade Tribunal, Trademarks Opposition Board, Transportation Appeal Tribunal of Canada, Canada Agricultural Review Tribunal, Court Martial Appeal Court, Specific Claims Tribunal, Public Servants Disclosure Protection Tribunal | **Reproduction of Federal Law Order, SI/97-5**, as above: each is a federally constituted court or administrative tribunal. The Information Commissioner's reports are not taken: the Commissioner is an officer of Parliament, not clearly a tribunal under the Order. |
 | Ontario Landlord and Tenant Board orders | **Open Government Licence – Ontario** (the orders are published in the Ontario Data Catalogue): copy, modify, publish and use for any lawful purpose, with the attribution statement. |
 | Ontario statutes and regulations | **© King's Printer for Ontario** (ontario.ca/page/copyright-information): any person may reproduce the text of statutes and regulations without permission or charge, accurately, stating the copy is not an official version, with the notice "© King's Printer for Ontario, 20__". |
 | British Columbia statutes and regulations | **King's Printer Licence – British Columbia**: worldwide, royalty-free, perpetual licence including lawful commercial purposes, with the required statements. |
@@ -31,7 +32,6 @@ Two layers of terms apply.
   Nova Scotia courts: each court's own terms require written permission for commercial use.
 - Quebec legislation: CC BY-NC-ND.
 - Other provinces' and territories' legislation and other Ontario tribunals: terms not yet read.
-- Refugee decisions and tribunals outside SignMe's subjects: not needed.
 
 ## What SignMe shows
 

@@ -36,6 +36,17 @@ export const SETS = {
   CIRB: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'canada_industrial_relations_board', type: 'decision' },
   OHSTC: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'occupational_health_safety_tribunal_canada', type: 'decision' },
   CT: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'competition_tribunal_canada', type: 'decision' },
+  // More federally constituted tribunals and a federal court, same Order (added 13 Nov 2026).
+  RAD: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'refugee_appeal_division_canada', type: 'decision' },
+  RPD: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'refugee_protection_division_canada', type: 'decision' },
+  RLLR: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'refugee_law_lab_reporter', type: 'decision' },
+  CITT: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'canadian_international_trade_tribunal', type: 'decision' },
+  TMOB: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'trademarks_opposition_board_canada', type: 'decision' },
+  TATC: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'transportation_appeal_tribunal_canada', type: 'decision' },
+  CART: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'canada_agricultural_review_tribunal', type: 'decision' },
+  CMAC: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'court_martial_appeal_court_canada', type: 'decision' },
+  SCT: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'specific_claims_tribunal_canada', type: 'decision' },
+  PSDPT: { repo: 'canadian-case-law', jurisdiction: 'canada_federal', source: 'public_servants_disclosure_protection_tribunal', type: 'decision' },
   // Ontario Landlord and Tenant Board orders: Open Government Licence – Ontario.
   ONLTB: { repo: 'canadian-case-law', jurisdiction: 'ontario', source: 'ontario_landlord_and_tenant_board', type: 'decision' },
   // Provincial legislation whose King's Printer permits reproduction.

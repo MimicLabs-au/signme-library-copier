@@ -350,4 +350,34 @@ export const collections = {
     // A2AJ card, 7 Nov 2026: ON 856 + 2,219; BC 572 + 1,476; AB 442 + 927 = 6,492.
     expected: { notes: 'A2AJ card, 7 Nov 2026: 6,492 rows across the six sets' },
   },
+
+  // Canada — more federal decisions from the same A2AJ dataset (founder,
+  // 13 Nov 2026: "add all the additionals"): the Immigration and Refugee
+  // Board's two refugee divisions, five more federal tribunals, the Trademarks
+  // Opposition Board and the Court Martial Appeal Court. All federally
+  // constituted, so the Reproduction of Federal Law Order covers them.
+  'ca/a2aj-federal-tribunals/2026-11': {
+    country: 'ca',
+    collection: 'a2aj-federal-tribunals',
+    version: '2026-11',
+    title: 'Canadian federal tribunal decisions (refugee, trade, trademarks, transport and others), via A2AJ',
+    publisher: 'Access to Algorithmic Justice (A2AJ), from the tribunals and court named',
+    sourceUrl: 'https://huggingface.co/datasets/a2aj/canadian-case-law',
+    collectedAsAt: null,
+    licence: 'MIT (dataset); Reproduction of Federal Law Order SI/97-5 (LICENCE.md)',
+    licenceFile: 'scripts/library/licences/a2aj-canada.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-13',
+    status: 'vaulted',
+    attribution:
+      'Reproduced under the Reproduction of Federal Law Order. Not an official version; not produced in affiliation with or with the endorsement of the Government of Canada. Data via A2AJ.',
+    tables: null,
+    source: {
+      adapter: 'a2aj-canada',
+      sets: ['RAD', 'RPD', 'RLLR', 'CITT', 'TMOB', 'TATC', 'CART', 'CMAC', 'SCT', 'PSDPT'],
+    },
+    // A2AJ survey, 12 Nov 2026 (rows): RAD 14,216; RPD 6,729; CITT 5,376;
+    // TMOB 3,747; RLLR 1,044; TATC 542; CART 535; CMAC 157; SCT 44; PSDPT 33.
+    expected: { notes: 'A2AJ survey, 12 Nov 2026: 32,423 rows across the ten sets (English and French)' },
+  },
 }
