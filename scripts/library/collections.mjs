@@ -262,4 +262,58 @@ export const collections = {
     },
     expected: { notes: 'count read from the finder on the first run' },
   },
+
+  // Canada — decisions, from the A2AJ Canadian Case Law dataset on Hugging
+  // Face (MIT; each document under its publisher's terms). Only sets whose
+  // terms were read and allow a paid service: federally constituted courts and
+  // tribunals (Reproduction of Federal Law Order) and the Ontario Landlord and
+  // Tenant Board (Open Government Licence – Ontario). See the licence file for
+  // what is left out and why.
+  'ca/a2aj-canadian-case-law/2026-11': {
+    country: 'ca',
+    collection: 'a2aj-canadian-case-law',
+    version: '2026-11',
+    title: 'Canadian court and tribunal decisions (federal; Ontario Landlord and Tenant Board), via A2AJ',
+    publisher: 'Access to Algorithmic Justice (A2AJ), from the courts and tribunals named',
+    sourceUrl: 'https://huggingface.co/datasets/a2aj/canadian-case-law',
+    collectedAsAt: null,
+    licence: 'MIT (dataset); Reproduction of Federal Law Order SI/97-5; Open Government Licence – Ontario (LICENCE.md)',
+    licenceFile: 'scripts/library/licences/a2aj-canada.md',
+    attribution:
+      'Reproduced under the Reproduction of Federal Law Order; contains information licensed under the Open Government Licence – Ontario. Not an official version. Data via A2AJ.',
+    tables: null,
+    source: {
+      adapter: 'a2aj-canada',
+      sets: ['ONLTB', 'FC', 'FCA', 'TCC', 'SST', 'FPSLREB', 'CHRT', 'CIRB', 'OHSTC', 'CT'],
+    },
+    // The dataset card's counts on 12 Nov 2026 (rows, both languages):
+    // ONLTB 56,186; FC 36,141; SST 18,081; TCC 8,149; FCA 7,837; FPSLREB
+    // 3,494; CHRT 1,218; CIRB 1,204; OHSTC 811; CT 645 = 133,766. Rows with no
+    // English text are passed over and counted by the run.
+    expected: { notes: 'A2AJ card, 12 Nov 2026: 133,766 rows across the ten sets (English and French)' },
+  },
+
+  // Canada — provincial legislation, from the A2AJ Canadian Laws dataset:
+  // Ontario, British Columbia and Alberta, whose King's Printers permit
+  // reproduction. Federal law is already held from Justice Canada's own files.
+  'ca/a2aj-canadian-laws/2026-11': {
+    country: 'ca',
+    collection: 'a2aj-canadian-laws',
+    version: '2026-11',
+    title: 'Statutes and regulations of Ontario, British Columbia and Alberta, via A2AJ',
+    publisher: 'Access to Algorithmic Justice (A2AJ), from the provinces\' official sources',
+    sourceUrl: 'https://huggingface.co/datasets/a2aj/canadian-laws',
+    collectedAsAt: null,
+    licence: 'MIT (dataset); King\'s Printer terms of Ontario, British Columbia and Alberta (LICENCE.md)',
+    licenceFile: 'scripts/library/licences/a2aj-canada.md',
+    attribution:
+      '© King\'s Printer for Ontario; King\'s Printer Licence – British Columbia; © Alberta King\'s Printer. Not official versions. Data via A2AJ.',
+    tables: null,
+    source: {
+      adapter: 'a2aj-canada',
+      sets: ['LEGISLATION-ON', 'REGULATIONS-ON', 'LEGISLATION-BC', 'REGULATIONS-BC', 'LEGISLATION-AB', 'REGULATIONS-AB'],
+    },
+    // A2AJ card, 7 Nov 2026: ON 856 + 2,219; BC 572 + 1,476; AB 442 + 927 = 6,492.
+    expected: { notes: 'A2AJ card, 7 Nov 2026: 6,492 rows across the six sets' },
+  },
 }
