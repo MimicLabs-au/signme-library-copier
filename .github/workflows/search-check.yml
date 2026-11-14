@@ -3,6 +3,10 @@ name: Search check
 # searches them, and prints the top documents. Read-only.
 on:
   workflow_dispatch:
+    inputs:
+      script:
+        description: 'Script under scripts/library/catalogue/'
+        default: 'search-check.mjs'
 permissions:
   contents: read
 jobs:
@@ -20,4 +24,4 @@ jobs:
           node-version-file: .nvmrc
       - run: npm ci
         working-directory: scripts/library/catalogue
-      - run: node scripts/library/catalogue/search-check.mjs
+      - run: node scripts/library/catalogue/${{ inputs.script || 'search-check.mjs' }}
