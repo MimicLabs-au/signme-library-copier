@@ -380,4 +380,33 @@ export const collections = {
     // TMOB 3,747; RLLR 1,044; TATC 542; CART 535; CMAC 157; SCT 44; PSDPT 33.
     expected: { notes: 'A2AJ survey, 12 Nov 2026: 32,423 rows across the ten sets (English and French)' },
   },
+
+  // Australia — ACT and Northern Territory legislation, the two sources
+  // release 7.2.0 of the Open Australian Legal Corpus adds to the 7.1.0 we
+  // hold. Taken as its own collection so the 7.1.0 vault stays untouched.
+  'au/oalc-act-nt-legislation/7.2.0': {
+    country: 'au',
+    collection: 'oalc-act-nt-legislation',
+    version: '7.2.0',
+    title: 'Legislation of the ACT and the Northern Territory (Open Australian Legal Corpus 7.2.0)',
+    publisher: 'Open Australian Legal Corpus (release 7.2.0, B. Fairless), from the ACT Legislation Register and Northern Territory Legislation',
+    sourceUrl: 'https://huggingface.co/datasets/benrfairless/open-australian-legal-corpus',
+    collectedAsAt: '2026-09-23',
+    licence: 'CC BY 4.0 (collection; ACT legislation); Northern Territory legislation copyright policy (LICENCE.md)',
+    licenceFile: 'scripts/library/licences/open-australian-legal-corpus-7.2.0-act-nt.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-14',
+    status: 'vaulted',
+    attribution:
+      'Based on content from the ACT Legislation Register at 23 September 2026. © Australian Capital Territory. Northern Territory legislation is an unofficial copy. From the Open Australian Legal Corpus, CC BY 4.0.',
+    tables: null,
+    source: {
+      adapter: 'oalc-jsonl',
+      repo: 'benrfairless/open-australian-legal-corpus',
+      sources: ['act_legislation', 'northern_territory_legislation'],
+    },
+    // The release's own table: ACT 324 Acts + 6,515 instruments + 2,551 bills;
+    // NT 384 Acts + 305 subordinate + 3,050 bills.
+    expected: { documents: 13_129, notes: 'release 7.2.0 README: ACT 9,390; NT 3,739' },
+  },
 }
