@@ -409,4 +409,45 @@ export const collections = {
     // NT 384 Acts + 305 subordinate + 3,050 bills.
     expected: { documents: 13_129, notes: 'release 7.2.0 README: ACT 9,390; NT 3,739' },
   },
+
+  // Australia — the whole Corpus at release 7.2.0: every decision of 7.1.0
+  // unchanged, all legislation as at 23 September 2026 (7.1.0's was March
+  // 2025), and the ACT and Northern Territory added. Replaces 7.1.0 and the
+  // separate ACT and NT collection as Australia's library once its index is
+  // built and checked; both older collections stay in the vault.
+  'au/open-australian-legal-corpus/7.2.0': {
+    country: 'au',
+    collection: 'open-australian-legal-corpus',
+    version: '7.2.0',
+    title: 'Open Australian Legal Corpus, release 7.2.0',
+    publisher: 'Open Australian Legal Corpus (Isaacus; release 7.2.0 by B. Fairless)',
+    sourceUrl: 'https://huggingface.co/datasets/benrfairless/open-australian-legal-corpus',
+    collectedAsAt: '2026-09-23',
+    licence: 'CC-BY-4.0 for the collection; each document under its source’s own terms (LICENCE.md)',
+    licenceFile: 'scripts/library/licences/open-australian-legal-corpus-7.2.0.md',
+    // The day the publisher's terms were last read against this use.
+    termsReadOn: '2026-11-14',
+    status: 'vaulted',
+    attribution:
+      'Includes adapted material from the Open Australian Legal Corpus, licensed under CC BY 4.0. Legislation is based on content from each official legislation website at 23 September 2026.',
+    tables: null,
+    source: {
+      adapter: 'oalc-jsonl',
+      repo: 'benrfairless/open-australian-legal-corpus',
+      sources: [
+        'act_legislation',
+        'federal_register_of_legislation',
+        'federal_court_of_australia',
+        'high_court_of_australia',
+        'nsw_caselaw',
+        'nsw_legislation',
+        'northern_territory_legislation',
+        'queensland_legislation',
+        'western_australian_legislation',
+        'south_australian_legislation',
+        'tasmanian_legislation',
+      ],
+    },
+    expected: { documents: 248_157, notes: 'release 7.2.0 README' },
+  },
 }
