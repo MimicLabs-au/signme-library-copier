@@ -24,7 +24,7 @@ export const collections = {
     licenceFile: 'scripts/library/licences/open-australian-legal-corpus-7.1.0.md',
     // The day the publisher's terms were last read against this use.
     termsReadOn: '2026-11-05',
-    status: 'live',
+    status: 'superseded',
     attribution:
       'Includes adapted material from the Open Australian Legal Corpus by Umar Butler, licensed under CC BY 4.0.',
     // Vault copied 5 Nov 2026 from the database tables that then held the
@@ -396,7 +396,7 @@ export const collections = {
     licenceFile: 'scripts/library/licences/open-australian-legal-corpus-7.2.0-act-nt.md',
     // The day the publisher's terms were last read against this use.
     termsReadOn: '2026-11-14',
-    status: 'vaulted',
+    status: 'superseded',
     attribution:
       'Based on content from the ACT Legislation Register at 23 September 2026. © Australian Capital Territory. Northern Territory legislation is an unofficial copy. From the Open Australian Legal Corpus, CC BY 4.0.',
     tables: null,
@@ -427,7 +427,7 @@ export const collections = {
     licenceFile: 'scripts/library/licences/open-australian-legal-corpus-7.2.0.md',
     // The day the publisher's terms were last read against this use.
     termsReadOn: '2026-11-14',
-    status: 'vaulted',
+    status: 'live',
     attribution:
       'Includes adapted material from the Open Australian Legal Corpus, licensed under CC BY 4.0. Legislation is based on content from each official legislation website at 23 September 2026.',
     tables: null,
